@@ -69,27 +69,7 @@
 \newunicodechar{🟢}{\textcolor{green}{\Large\textbullet}}
 \newunicodechar{🟡}{\textcolor{orange}{\Large\textbullet}}
 
-% ---------- Dark theme ----------
-% Set page background and foreground for dark mode
-\definecolor{paperbg}{HTML}{2B2B2B}
-\definecolor{linkcyan}{RGB}{80,200,255}
-\pagecolor{paperbg}
-\color{white}
-
-% Ensure tables/rules/captions/listings are readable on dark background
-\usepackage{colortbl}
-\arrayrulecolor{white}
-\captionsetup{labelfont={color=white},textfont={color=white}}
-% Make links visible on dark background
-\hypersetup{colorlinks=true, linkcolor=white, urlcolor=linkcyan, citecolor=white}
-\lstset{
-  basicstyle=\ttfamily\small\color{white},
-  keywordstyle=\color{linkcyan},
-  commentstyle=\color{gray},
-  stringstyle=\color{yellow},
-  breaklines=true,
-  columns=fullflexible
-}
+% (Dark theme disabled; use default white background and black text)
 
 % ---------- Title page ----------
 % Disable automatic section numbering to preserve manual numbering from the source
@@ -111,8 +91,8 @@
   \vspace{1em}
   {\Large Whitepaper\par}
   \vspace*{\fill}
-  % Cover image: centered and scaled to 70\% of text width. The image is extracted by Pandoc.
-  \includegraphics[width=0.7\textwidth]{media/image1.png}\par
+  % Cover image: centered and scaled to 70% of text width. Use the provided inverted image.
+  \includegraphics[width=0.7\textwidth]{image1_inverted.png}\par
   \vspace*{\fill}
   {\large Version 1.2 — Revised on 22 August 2025\par}
   {\large Original issue: 15 July 2025\par}
