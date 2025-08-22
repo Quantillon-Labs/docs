@@ -1,6 +1,6 @@
 # Quantillon Whitepaper — Build Instructions
 
-This repository lets you generate a typeset PDF whitepaper from a DOCX source using Pandoc and XeLaTeX.
+This repository generates a typeset PDF whitepaper from the latest versioned DOCX in `src/` using Pandoc and XeLaTeX.
 
 ## Prerequisites
 - Pandoc
@@ -21,41 +21,51 @@ This repository lets you generate a typeset PDF whitepaper from a DOCX source us
   - Install Pandoc (from pandoc.org) and TeX Live (or use WSL and the Ubuntu commands above).
 
 ## Build
-The default source DOCX is `whitepaper.docx`. To generate the PDF:
+By default, the Makefile auto-selects the highest-version `.docx` in `src/` (natural version sort) and builds a PDF with the same base name into `generated/`.
+
 ```bash
 make -f Makefile.pandoc
 ```
+
 Outputs:
-- `quantillon_whitepaper.pdf` (final PDF)
+- `generated/<docname>.pdf` (final PDF, same base name as the selected `.docx`)
 - `converted.tex` (Pandoc-converted LaTeX body)
 - `media/` (extracted images)
 
 Utility targets:
 - `make -f Makefile.pandoc clean` — remove LaTeX aux files
-- `make -f Makefile.pandoc veryclean` — also remove PDF, converted.tex, and `media/`
+- `make -f Makefile.pandoc veryclean` — also remove PDF, `converted.tex`, and `media/`
 
 ## How it works
-1. Pandoc converts `whitepaper.docx` → `converted.tex`, extracting embedded images into `./media/`.
-2. A small cleanup step removes the DOCX cover image line from `converted.tex` and trims preamble content up to the first numbered section.
-3. XeLaTeX compiles `quantillon_whitepaper_template.tex`, which:
+1. The latest `.docx` in `src/` is selected via natural version sort (e.g., picks `... v1.2.docx` over `... v1.docx`).
+2. Pandoc converts the selected DOCX → `converted.tex`, extracting embedded images into `./media/`.
+3. A cleanup step removes the DOCX cover image line from `converted.tex` and trims preamble content up to the first numbered section.
+4. XeLaTeX compiles `quantillon_whitepaper_template.tex`, which:
    - Includes `converted.tex` as the content body
-   - Sets the table of contents depth to include subentries (sections and subsections)
-   - Inserts a page break before each main entry (mapped to `\subsection`) except the first
+   - Enables Unicode fonts and common packages
+   - Builds an internal PDF (with a safe `jobname`) that is then moved to `generated/<docname>.pdf`
 
 ## Customization
-- Change the source DOCX name by overriding the variable:
+- Override the source DOCX (spaces supported):
   ```bash
-  make -f Makefile.pandoc DOCX=my_source.docx
+  make -f Makefile.pandoc DOCX="src/Quantillon Protocol Whitepaper v1.2.docx"
   ```
-- Change the output PDF name:
+- Change the output directory (defaults to `generated/`):
   ```bash
-  make -f Makefile.pandoc PDF=my_whitepaper.pdf
+  make -f Makefile.pandoc GENERATED_DIR=out
   ```
-- Edit layout/TOC/page-break behavior in `quantillon_whitepaper_template.tex`:
-  - TOC depth: `\setcounter{tocdepth}{3}` (use `2` to include up to subsections only)
-  - Page breaks before main entries: see the `\renewcommand{\subsection}{...}` hook
+- Adjust the LaTeX jobname (internal build filename only; final PDF name still follows the DOCX base):
+  ```bash
+  make -f Makefile.pandoc JOBNAME=my_whitepaper
+  ```
+- Edit layout/TOC/page-break behavior in `quantillon_whitepaper_template.tex` as needed.
 
 ## Troubleshooting
+- "No .docx files found" — place at least one versioned `.docx` in `src/` (e.g., `... v1.2.docx`), or override `DOCX` explicitly as shown above.
 - "pandoc is not installed" — install Pandoc (see Prerequisites).
 - LaTeX package not found or XeLaTeX missing — ensure TeX Live is installed with the collections listed above.
-- If your DOCX cover image path differs, adjust the `sed` line in `Makefile.pandoc` that removes the cover image reference. 
+- If your DOCX cover image path differs, adjust the `sed` line in `Makefile.pandoc` that removes the cover image reference.
+
+## Notes
+- Filenames with spaces are supported throughout the build.
+- The selected DOCX is echoed at build time for easy verification. 
