@@ -1,0 +1,115 @@
+% Quantillon Protocol — LaTeX template that auto-includes converted content
+\documentclass[12pt,a4paper]{report}
+
+% ---------- Encoding & Language ----------
+\usepackage{ifxetex,ifluatex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage{polyglossia}
+  \setmainlanguage{english}
+  \setotherlanguage{french}
+  \setmainfont{TeX Gyre Pagella}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \usepackage{polyglossia}
+    \setmainlanguage{english}
+    \setotherlanguage{french}
+    \setmainfont{TeX Gyre Pagella}
+  \else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage[english]{babel}
+  \fi
+\fi
+
+% ---------- Page layout ----------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Figures, Tables, Code ----------
+\usepackage{graphicx}
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible}
+
+% Additional table packages for better column handling and width calculations
+\usepackage{tabularx}
+\usepackage{array,calc}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+% ---------- Misc ----------
+\usepackage{microtype}
+\usepackage{xcolor}
+
+% Ulem for underline macros used in the converted content
+\usepackage[normalem]{ulem}
+
+% Define fallback for \real macro used in Pandoc-generated column widths
+\providecommand{\real}[1]{#1}
+
+% Support Unicode characters (e.g., colored bullets) used in the source
+\usepackage{newunicodechar}
+\newunicodechar{🟢}{\textcolor{green}{\Large\textbullet}}
+\newunicodechar{🟡}{\textcolor{orange}{\Large\textbullet}}
+
+% ---------- Title page ----------
+% Disable automatic section numbering to preserve manual numbering from the source
+\setcounter{secnumdepth}{-1}
+% Include subentries (e.g., 1.1, 2.1) in the table of contents
+\setcounter{tocdepth}{3}
+% Insert a page break before each main entry (mapped to \subsection), except the first
+\newif\iffirstmainsection
+\firstmainsectiontrue
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{\iffirstmainsection\global\firstmainsectionfalse\else\clearpage\fi\oldsubsection}
+
+\begin{document}
+
+% --- Custom title page ---
+\begin{titlepage}
+  \centering
+  {\huge\bfseries QUANTILLON PROTOCOL\par}
+  \vspace{1em}
+  {\Large Whitepaper\par}
+  \vspace{2em}
+  % Cover image: centered and scaled to 70\% of text width. The image is extracted by Pandoc.
+  \includegraphics[width=0.7\textwidth]{media/image1.png}\par
+  \vfill
+  {\large Version 1.2 — Revised on 22 August 2025\par}
+  {\large Original issue: 15 July 2025\par}
+\end{titlepage}
+
+% --- Document History page ---
+\section*{Document History}
+\begin{tabularx}{\textwidth}{@{} l l l X @{} }
+\toprule
+\textbf{Version} & \textbf{Date} & \textbf{Author/Team} & \textbf{Main Changes} \\
+\midrule
+v1.0 & 15 July 2025 & Quantillon Labs & First release of the whitepaper \\
+v1.1 & 22 August 2025 & Quantillon Labs & Updated Tokenomics and Roadmap \\
+\bottomrule
+\end{tabularx}
+\newpage
+
+% --- Table of contents on its own page ---
+\tableofcontents
+\newpage
+
+% --- BEGIN: Auto-included converted content ---
+% The file 'converted.tex' is generated from the DOCX by Pandoc.
+% It will contain all sections/chapters extracted from the source.
+\input{converted.tex}
+% --- END: Auto-included converted content ---
+
+\vfill
+\begin{center}
+  \small \copyright~2025 Quantillon Labs
+\end{center}
+
+\end{document}

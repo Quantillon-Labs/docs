@@ -1,0 +1,185 @@
+% Quantillon Protocol — Whitepaper (LaTeX skeleton)
+% Generated as a clean starting point for manual edits or for merging with a Pandoc conversion.
+
+\documentclass[12pt,a4paper]{report}
+
+% ---------- Encoding & Language ----------
+\usepackage{ifxetex,ifluatex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage{polyglossia}
+  \setmainlanguage{english}
+  \setotherlanguage{french}
+  \setmainfont{TeX Gyre Pagella}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \usepackage{polyglossia}
+    \setmainlanguage{english}
+    \setotherlanguage{french}
+    \setmainfont{TeX Gyre Pagella}
+  \else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage[english]{babel}
+  \fi
+\fi
+
+% ---------- Page layout ----------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Figures, Tables, Code ----------
+\usepackage{graphicx}
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible}
+
+% ---------- Links ----------
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+% ---------- Misc ----------
+\usepackage{microtype}
+\usepackage{xcolor}
+
+% ---------- Title page ----------
+\title{\textbf{QUANTILLON PROTOCOL}\\Whitepaper}
+\author{Quantillon Labs}
+\date{Version 1.2 — Revised on 22 August 2025\\Original issue: 15 July 2025}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+% ---------- Document History ----------
+\section*{Document History}
+\begin{longtable}{@{}llll@{}}
+\toprule
+\textbf{Version} & \textbf{Date} & \textbf{Author/Team} & \textbf{Main Changes} \\
+\midrule
+v1.0 & 15 July 2025 & Quantillon Labs & First release of the whitepaper \\
+v1.1 & 22 August 2025 & Quantillon Labs & Updated Tokenomics and Roadmap \\
+\bottomrule
+\end{longtable}
+\newpage
+
+\tableofcontents
+\newpage
+
+% ---------- Core Sections (headings mirrored from your doc) ----------
+
+\chapter{Executive Summary}
+% TODO: Paste/convert content here.
+
+\chapter{Macro \& Regulatory Context}
+\section{The Eurozone’s Monetary Landscape: A Fragile Equilibrium}
+% TODO
+\section{The Case for Euro-Native Instruments: Yield, Safety, and Monetary Sovereignty}
+% TODO
+\section{Regulatory Context: MiCA and the Exemption Framework}
+% TODO
+
+\chapter{Market Landscape \& Competitive Analysis}
+\section{The Euro Stablecoin Market: Fragmentation and Failure to Launch}
+% TODO
+\section{USD Dominance in DeFi: A Structural Bias}
+% TODO
+\section{Quantillon’s Competitive Edge}
+% TODO
+
+\chapter{Quantillon Protocol: Design \& Architecture}
+\section{QEURO Stablecoin Design: A Euro-Pegged, Overcollateralized Instrument}
+% TODO
+\section{The Dual-Pool Model: Users and Hedgers}
+% TODO
+\section{Liquidity Architecture: Inheriting Depth from USDC and Forex}
+% TODO
+\section{Native Composability and Embedded DEX}
+% TODO
+\section{Vault Variants: Modular Architecture for Risk Segmentation}
+% You may convert tables with Pandoc (preferred) or re-typeset using booktabs/longtable.
+% Example placeholder for the Vault Portfolio table:
+\begin{longtable}{@{}llllll@{}}
+\toprule
+\textbf{Vault Type} & \textbf{Collateral Backend} & \textbf{Risk Profile} & \textbf{Target APY} & \textbf{Target Users} & \textbf{Notes} \\
+\midrule
+aQEURO & Aave USDC lending & Low & 4--8\% & Retail &  \\
+mQEURO & MakerDAO PSM/DSR & Very Low & 3--6\% & Conservative &  \\
+bQEURO & Tokenized T-Bills \& RWAs & Low & 5--7\% & Institutions &  \\
+eQEURO & Advanced DeFi strategies & Medium & 6--12\% & Sophisticated &  \\
+\bottomrule
+\end{longtable}
+
+\section{stQEURO: Yield-Bearing Euro Infrastructure}
+% TODO
+
+\chapter{Tokenomics \& Governance}
+\section{The \$QTI Token: Governance, Distribution, and Incentives}
+% TODO (consider using longtable for allocation tables)
+\section{Yield Mechanics and the ``Yield Shift''}
+% TODO
+\section{Incentive Alignment and Protocol Sustainability}
+% TODO
+
+\chapter{Business Model \& Economic Sustainability}
+\section{Revenue Forecasts and Operating Leverage}
+% TODO
+\section{Capital Efficiency Through Design}
+% TODO
+\section{Institutional Fit and Monetization Pathways}
+% TODO
+
+\chapter{Risks \& Mitigation Strategies}
+\section{Currency Risk: EUR/USD Volatility}
+% TODO
+\section{Liquidity Risk: Capital Flight and Redemption Pressure}
+% TODO
+\section{Smart Contract and Oracle Risk}
+% TODO
+\section{Governance Risk and Protocol Capture}
+% TODO
+\section{Regulatory Risk: Legal Classification and MiCA}
+% TODO
+\section{DeFi Contagion Risk}
+% TODO
+\section{stQEURO-Specific Risk Factors}
+% TODO
+
+\chapter{Roadmap \& Adoption Strategy}
+\section{Technical and Product Development Timeline}
+% TODO
+\section{Strategic KPIs and Milestones}
+% TODO
+\section{Ecosystem Development and Network Effects}
+% TODO
+
+\chapter{Team \& Operational Structure}
+\section{Founding Team}
+% TODO
+\section{Core Development \& Product Team}
+% TODO
+\section{Organizational Entities}
+% TODO
+
+\chapter{Technical Appendices}
+\section{Smart Contract Architecture}
+% TODO
+\section{Oracle and Pricing Infrastructure}
+% TODO
+\section{Yield Shift Formula}
+% TODO
+\section{Value at Risk and Stress Testing}
+% TODO
+\section{Compliance Interfaces}
+% TODO
+
+\vfill
+\begin{center}
+\small \textcopyright\ 2025 Quantillon Labs
+\end{center}
+
+\end{document}

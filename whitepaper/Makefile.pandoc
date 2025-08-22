@@ -1,0 +1,47 @@
+# Makefile: convert DOCX to LaTeX with Pandoc, then build PDF with XeLaTeX
+
+DOCX=whitepaper.docx
+TEX_MAIN=quantillon_whitepaper_template.tex
+CONVERTED=converted.tex
+PDF=quantillon_whitepaper.pdf
+
+# Makefile: convert DOCX to LaTeX with Pandoc, then build PDF with XeLaTeX
+
+DOCX = whitepaper.docx
+TEX_MAIN = quantillon_whitepaper_template.tex
+CONVERTED = converted.tex
+PDF = quantillon_whitepaper.pdf
+JOBNAME = $(basename $(PDF))
+
+# Use xelatex for proper unicode/fonts; use pandoc to convert DOCX->LaTeX body.
+all: $(PDF)
+
+$(CONVERTED): $(DOCX)
+	@command -v pandoc >/dev/null 2>&1 || { echo "ERROR: pandoc is not installed. Install it with: sudo apt install pandoc"; exit 1; }
+	pandoc "$(DOCX)" \
+	--from=docx \
+	--to=latex \
+	--extract-media=. \
+	-V geometry=a4paper,margin=2.5cm \
+	-o $(CONVERTED)
+	# Remove the cover image line from the converted content
+	sed -i '/{media\/image1.png}/d' $(CONVERTED)
+	# Drop everything up to the first numbered section (e.g. \section{1. ...}) so that title page,
+	# manual table of contents, and Document History from the DOCX do not get duplicated.
+	# Trim off all content preceding the first numbered section (subsection or section).
+	# This retains the numbered content (e.g. "1. Executive Summary") while dropping the title,
+	# manual table of contents, and Document History from the DOCX. Match both \section and
+	# \subsection to be robust to Pandoc's heading levels.
+	# Use two separate patterns to match either \section{1...} or \subsection{1...}.
+	awk 'flag || /\section\{1\./ || /\subsection\{1\./ {flag=1; print}' $(CONVERTED) > $(CONVERTED).tmp && mv $(CONVERTED).tmp $(CONVERTED)
+
+$(PDF): $(TEX_MAIN) $(CONVERTED)
+	xelatex -interaction=nonstopmode -jobname=$(JOBNAME) $(TEX_MAIN) || true
+	xelatex -interaction=nonstopmode -jobname=$(JOBNAME) $(TEX_MAIN) || true
+
+clean:
+	rm -f *.aux *.log *.out *.toc *.lot *.lof *.fls *.fdb_latexmk *.xdv
+
+veryclean: clean
+	rm -f $(PDF) $(CONVERTED)
+	rm -Rf media/
