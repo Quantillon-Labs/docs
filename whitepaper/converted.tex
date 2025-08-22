@@ -71,22 +71,14 @@ three-token euro-DeFi ecosystem, offering:
 
 \begin{itemize}
 \item
-  \begin{quote}
   Superior capital efficiency via delta-neutral hedging
-  \end{quote}
 \item
-  \begin{quote}
   Composability across multiple DeFi protocols
-  \end{quote}
 \item
-  \begin{quote}
   Liquidity by design through Forex and USDC markets
-  \end{quote}
 \item
-  \begin{quote}
   Yield-bearing QEURO instruments for both retail and institutional
   users
-  \end{quote}
 \end{itemize}
 
 Finally, the protocol is backed by a seasoned team with decades of
@@ -215,31 +207,23 @@ limitations:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{EUROC (Circle):} Despite the credibility of its issuer, EUROC
   has limited utility and suffers from low liquidity on decentralized
   exchanges. It also lacks yield generation mechanisms and is primarily
   used as a compliance showcase.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{EURS (Stasis):} EURS is a custodial stablecoin with limited
   adoption and high on/off-ramp costs. It is centralized and opaque,
   offering no native integration with DeFi protocols.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{EURT (Tether):} Lacking regulatory clarity and plagued by
   transparency concerns, EURT is largely avoided by institutional
   players.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{EURA (Angle Protocol):} While technically innovative with a
   dynamic reserve model, EURA has struggled with capital efficiency and
   scale, facing depegging events and low yield generation as it is based
   on euro bonds.
-  \end{quote}
 \end{itemize}
 
 The consistent problem across all these assets is their failure to
@@ -298,28 +282,22 @@ three innovations:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Liquidity by Design:} QEURO inherits USDC liquidity on the
   user side and Forex liquidity via the hedger side. This dual-channel
   design mitigates the need for external liquidity mining or bribing
   mechanisms.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Delta-Neutral Hedging:} Unlike existing euro stablecoins,
   Quantillon introduces a permissionless hedging layer that allows
   collateral providers to neutralize EUR/USD exposure through
   protocol-native instruments. This supports peg stability and
   institutional hedging needs.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Yield Shift Mechanism:} QEURO is not only a stablecoin but a
   savings instrument. By redistributing most of the yield from
   collateral deployment (e.g., Aave) to users and hedgers via a dynamic
   `Yield Shift', the protocol incentivizes long-term participation and
   peg maintenance.
-  \end{quote}
 \end{itemize}
 
 These components create a uniquely sustainable design that addresses
@@ -369,15 +347,12 @@ actor groups: \textbf{Users} and \textbf{Hedgers}.
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Users} are DeFi participants who mint QEURO to access
   euro-denominated liquidity or stake QEURO in order to earn yield. They
   deposit volatile or stable crypto assets, which are swapped into USDC
   and locked as protocol collateral. These users maintain exposure to
   the euro while benefiting from DeFi-native financial products.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Hedgers} are actors who take the opposite position---providing
   USDC upfront to hedge against euro exposure. They effectively short
   the EUR/USD pair by engaging in a leveraged, unidirectional perpetual
@@ -385,7 +360,6 @@ actor groups: \textbf{Users} and \textbf{Hedgers}.
   EUR/USD interest rate differential (typically \textasciitilde1\%
   annually) and (ii) a variable "Yield Shift" bonus extracted from the
   collateral's DeFi yield.
-  \end{quote}
 \end{itemize}
 
 The protocol enforces a liquidation mechanism for hedgers as well: if
@@ -404,18 +378,14 @@ market makers or illiquid LP incentives, Quantillon's model ensures
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{On the user side}, all incoming deposits are swapped into
   USDC---the most liquid dollar-based stablecoin---thus ensuring instant
   deployability and deep routing.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{On the hedger side}, liquidity stems from traditional Forex
   markets, where EUR/USD is one of the most traded currency pairs
   globally. This design enables the protocol to scale capital efficiency
   without relying on shallow DEX pools or bribe-driven gauges.
-  \end{quote}
 \end{itemize}
 
 As a result, QEURO enjoys both upstream (USDC) and downstream (Forex)
@@ -450,8 +420,8 @@ unified euro peg mechanics across all variants.
 \textbf{Vault Portfolio Overview}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1375}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3406}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1374}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3407}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1516}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1422}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2281}}@{}}
@@ -485,68 +455,72 @@ Sophisticated DeFi \\
 
 aQEURO (Aave Integration - Default Configuration)
 
-\begin{quote}
-• Collateral Deployment: Aave USDC lending
-
-• Yield Mechanism: Direct participation in Aave lending markets with
-dynamic APY
-
-• Risk Factors: Aave protocol risk, USDC depeg risk, smart contract risk
-
-• Target Users: Retail DeFi users seeking stable euro yield with proven
-infrastructure
-\end{quote}
+\begin{itemize}
+\item
+  Collateral Deployment: Aave USDC lending
+\item
+  Yield Mechanism: Direct participation in Aave lending markets with
+  dynamic APY
+\item
+  Risk Factors: Aave protocol risk, USDC depeg risk, smart contract risk
+\item
+  Target Users: Retail DeFi users seeking stable euro yield with proven
+  infrastructure
+\end{itemize}
 
 mQEURO (MakerDAO Integration)
 
-\begin{quote}
-• Collateral Deployment: MakerDAO Peg Stability Module (PSM) and Dai
-Savings Rate (DSR)
-
-• Yield Mechanism: Conservative yield through DAI ecosystem stability
-mechanisms
-
-• Risk Factors: MakerDAO governance risk, DAI stability risk
-
-• Target Users: Ultra-conservative users prioritizing capital
-preservation
-\end{quote}
+\begin{itemize}
+\item
+  Collateral Deployment: MakerDAO Peg Stability Module (PSM) and Dai
+  Savings Rate (DSR)
+\item
+  Yield Mechanism: Conservative yield through DAI ecosystem stability
+  mechanisms
+\item
+  Risk Factors: MakerDAO governance risk, DAI stability risk
+\item
+  Target Users: Ultra-conservative users prioritizing capital
+  preservation
+\end{itemize}
 
 bQEURO (Real World Assets Focus)
 
-\begin{quote}
-• Collateral Deployment: Tokenized U.S. Treasury Bills, European Bunds,
-Corporate Bonds
-
-• Yield Mechanism: Traditional fixed-income yields through compliant
-tokenization platforms
-
-• Risk Factors: Custody risk, regulatory risk, lower liquidity
-
-• Target Users: Institutional investors requiring regulatory clarity and
-traditional yield sources
-
-• Minimum Threshold: €100,000 institutional access requirement
-\end{quote}
+\begin{itemize}
+\item
+  Collateral Deployment: Tokenized U.S. Treasury Bills, European Bunds,
+  Corporate Bonds
+\item
+  Yield Mechanism: Traditional fixed-income yields through compliant
+  tokenization platforms
+\item
+  Risk Factors: Custody risk, regulatory risk, lower liquidity
+\item
+  Target Users: Institutional investors requiring regulatory clarity and
+  traditional yield sources
+\item
+  Minimum Threshold: €100,000 institutional access requirement
+\end{itemize}
 
 eQEURO (Advanced DeFi Strategies)
 
-\begin{quote}
-• Collateral Deployment: Ethena USDe, Lido stETH, Rocketpool rETH,
-recursive strategies
-
-• Yield Mechanism: Leveraged yield farming up to 3x through
-sophisticated DeFi composability
-
-• Risk Factors: Higher smart contract risk, leverage risk, strategy
-complexity
-
-• Target Users: Sophisticated DeFi participants seeking maximum yield
-optimization
-
-• Advanced Features: Automated rebalancing, yield optimization bots,
-governance-adjustable parameters
-\end{quote}
+\begin{itemize}
+\item
+  Collateral Deployment: Ethena USDe, Lido stETH, Rocketpool rETH,
+  recursive strategies
+\item
+  Yield Mechanism: Leveraged yield farming up to 3x through
+  sophisticated DeFi composability
+\item
+  Risk Factors: Higher smart contract risk, leverage risk, strategy
+  complexity
+\item
+  Target Users: Sophisticated DeFi participants seeking maximum yield
+  optimization
+\item
+  Advanced Features: Automated rebalancing, yield optimization bots,
+  governance-adjustable parameters
+\end{itemize}
 
 \textbf{Cross-Vault Mechanics}
 
@@ -640,9 +614,9 @@ QTI tokens, the distribution is strategically structured as follows:
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2637}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1236}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1622}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1621}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1374}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3132}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3133}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Category
@@ -689,20 +663,14 @@ enabling meaningful decentralized decision-making.
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Constitutional Changes:} 85\% threshold, 14-day timelock
   (protocol parameters, emergency procedures)
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Operational Decisions:} 60\% threshold, 3-day timelock (fee
   structures, incentive programs)
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Community Proposals:} Simple majority, 24-hour timelock
   (grants, marketing initiatives)
-  \end{quote}
 \end{itemize}
 
 \hypertarget{section-2}{%
@@ -722,23 +690,15 @@ Key benefits include:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Automatic Compounding:} No manual reinvestment required
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Instant Liquidity:} No lock periods or withdrawal delays
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{DeFi Composability:} Full integration across protocols while
   earning yield
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Tax Efficiency:} No rebase events creating potential taxable
   income
-  \end{quote}
 \end{itemize}
 
 \hypertarget{section-3}{%
@@ -759,30 +719,20 @@ APY. From this yield:
 
 \begin{itemize}
 \item
-  \begin{quote}
   A protocol fee of 10\% is applied.
-  \end{quote}
 \item
-  \begin{quote}
   Hedgers receive a fixed compensation based on the EUR/USD interest
   rate spread (typically \textasciitilde1\%).
-  \end{quote}
 \item
-  \begin{quote}
   The residual is then distributed variably:
-  \end{quote}
 
   \begin{itemize}
   \item
-    \begin{quote}
     \textbf{Positive Yield Shift}: More yield incentivizes Hedgers when
     their supply is insufficient.
-    \end{quote}
   \item
-    \begin{quote}
     \textbf{Negative Yield Shift}: More yield flows to Users when
     hedgers participation is high.
-    \end{quote}
   \end{itemize}
 \end{itemize}
 
@@ -806,17 +756,11 @@ governed by \$QTI holders. This treasury may be used to:
 
 \begin{itemize}
 \item
-  \begin{quote}
   Fund audits and research
-  \end{quote}
 \item
-  \begin{quote}
   Provide insurance buffers
-  \end{quote}
 \item
-  \begin{quote}
   Invest in ecosystem integrations or cross-chain bridges
-  \end{quote}
 \end{itemize}
 
 Sustainability is further ensured by the protocol's lean cost structure.
@@ -848,16 +792,12 @@ complementary streams:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Protocol fees:} A fixed 0.1\% fee is levied on all mint and
   redeem operations involving QEURO.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Collateral yield:} The protocol captures 10\% of the yield
   generated by deploying collateral (primarily USDC) in battle-tested
   DeFi platforms such as Aave.
-  \end{quote}
 \end{itemize}
 
 This model is transparent, predictable, and resilient across market
@@ -879,54 +819,36 @@ growth and user adoption.
 
 \begin{itemize}
 \item
-  \begin{quote}
   Mint/redeem fees: 0.1\% on all QEURO operations
-  \end{quote}
 \item
-  \begin{quote}
   Yield management: 10\% of returns from collateral deployment
   (primarily Aave USDC)
-  \end{quote}
 \item
-  \begin{quote}
   Liquidation penalties: 2-5\% of liquidated hedger and user positions
-  \end{quote}
 \end{itemize}
 
 \textbf{2. stQEURO Yield Infrastructure}
 
 \begin{itemize}
 \item
-  \begin{quote}
   Staking operation fees: 0.05\% on stake/unstake transactions
-  \end{quote}
 \item
-  \begin{quote}
   Enhanced trading volume through improved user retention
-  \end{quote}
 \item
-  \begin{quote}
   Premium yield optimization services for institutional users
-  \end{quote}
 \end{itemize}
 
 \textbf{3. Cross-Protocol Integration}
 
 \begin{itemize}
 \item
-  \begin{quote}
   Cross-chain bridge fees: 0.1-0.3\% of transfers (Ethereum, Base,
   Arbitrum, Optimism)
-  \end{quote}
 \item
-  \begin{quote}
   Premium institutional services: advanced analytics, custom
   integrations
-  \end{quote}
 \item
-  \begin{quote}
   Partnership revenue sharing: integrations with CeDeFi platforms
-  \end{quote}
 \end{itemize}
 
 Conservative Growth Scenario (€50M TVL by Year 1)
@@ -990,45 +912,29 @@ Annual Revenue Calculation:
 
 \begin{itemize}
 \item
-  \begin{quote}
   TVL Growth: Target €100M by Month 12, €1B by Month 36
-  \end{quote}
 \item
-  \begin{quote}
   Staking Adoption: 50\%+ of QEURO supply in stQEURO by Year 2
-  \end{quote}
 \item
-  \begin{quote}
   Daily Volume: 2-5\% of TVL in trading activity
-  \end{quote}
 \item
-  \begin{quote}
   Cross-Chain Distribution: 30\% mainnet, 70\% L2 by Year 2
-  \end{quote}
 \end{itemize}
 
 \textbf{Sustainability Metrics:}
 
 \begin{itemize}
 \item
-  \begin{quote}
   Operating Margin: Maintain \textgreater40\% across market conditions
-  \end{quote}
 \item
-  \begin{quote}
   Revenue Diversification: No single source \textgreater60\% of total
   revenue
-  \end{quote}
 \item
-  \begin{quote}
   User Retention: \textgreater80\% of stQEURO holders active after 6
   months
-  \end{quote}
 \item
-  \begin{quote}
   Protocol Utilization: Average \textgreater80\% of collateral deployed
   in yield strategies
-  \end{quote}
 \end{itemize}
 
 \hypertarget{capital-efficiency-through-design}{%
@@ -1040,17 +946,11 @@ protocols:
 
 \begin{itemize}
 \item
-  \begin{quote}
   No dependence on liquidity mining for peg stability
-  \end{quote}
 \item
-  \begin{quote}
   No bribing mechanisms for gauge voting or yield direction
-  \end{quote}
 \item
-  \begin{quote}
   Slippage-free mint/redeem operations eliminate arbitrage cost
-  \end{quote}
 \end{itemize}
 
 The dual-pool architecture with dynamic Yield Shift ensures internal
@@ -1067,23 +967,17 @@ Quantillon's infrastructure allows for multiple monetization pathways:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Institutional access:} Hedge funds, wealth managers, and
   corporate treasuries can use QEURO for euro-native exposure in DeFi
   with reduced compliance overhead.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{CeDeFi integration:} Through partnerships with platforms like
   Quantfury or Cadmos, QEURO can serve as the euro liquidity backbone in
   compliant fintech stacks.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{On/off-ramp monetization:} Future integrations with fiat
   gateways and custody providers may allow for spread-based revenue
   models.
-  \end{quote}
 \end{itemize}
 
 The protocol also supports cross-chain deployment, allowing it to tap
@@ -1209,21 +1103,22 @@ fund loss.
 
 Mitigation:
 
-\begin{quote}
-• Specialized audits focused exclusively on auto-compounding token
-mechanics
-
-• Formal mathematical verification of yield calculation algorithms
-
-• Real-time monitoring with automated circuit breakers for anomalous
-calculations
-
-• Emergency pause functionality with governance-controlled restart
-procedures
-
-• Segregated insurance fund (3\% of yield) specifically for compounding
-mechanism failures
-\end{quote}
+\begin{itemize}
+\item
+  Specialized audits focused exclusively on auto-compounding token
+  mechanics
+\item
+  Formal mathematical verification of yield calculation algorithms
+\item
+  Real-time monitoring with automated circuit breakers for anomalous
+  calculations
+\item
+  Emergency pause functionality with governance-controlled restart
+  procedures
+\item
+  Segregated insurance fund (3\% of yield) specifically for compounding
+  mechanism failures
+\end{itemize}
 
 \textbf{Yield Volatility and User Expectation Risk}
 
@@ -1233,18 +1128,19 @@ expectations.
 
 Mitigation:
 
-\begin{quote}
-• 7-day moving average smoothing for APY display to reduce short-term
-volatility perception
-
-• 5\% protocol yield reserve buffer to maintain consistent distributions
-during temporary yield drops
-
-• Maximum 15\% APY ceiling to prevent unsustainable user expectations
-during yield spikes
-
-• Transparent communication about yield sources and market dependency
-\end{quote}
+\begin{itemize}
+\item
+  7-day moving average smoothing for APY display to reduce short-term
+  volatility perception
+\item
+  5\% protocol yield reserve buffer to maintain consistent distributions
+  during temporary yield drops
+\item
+  Maximum 15\% APY ceiling to prevent unsustainable user expectations
+  during yield spikes
+\item
+  Transparent communication about yield sources and market dependency
+\end{itemize}
 
 \textbf{Cross-Protocol Composability Risk}
 
@@ -1254,19 +1150,20 @@ appreciation calculations fail or if oracle feeds become unreliable.
 
 Mitigation:
 
-\begin{quote}
-• Conservative oracle update mechanisms with multiple data sources and
-heartbeat monitoring
-
-• Partnership agreements with major DeFi protocols for standardized
-stQEURO valuation methods
-
-• Graduated rollout of stQEURO integrations with smaller protocols
-before major platform adoption
-
-• Emergency communication channels for rapid coordination during
-cross-protocol incidents
-\end{quote}
+\begin{itemize}
+\item
+  Conservative oracle update mechanisms with multiple data sources and
+  heartbeat monitoring
+\item
+  Partnership agreements with major DeFi protocols for standardized
+  stQEURO valuation methods
+\item
+  Graduated rollout of stQEURO integrations with smaller protocols
+  before major platform adoption
+\item
+  Emergency communication channels for rapid coordination during
+  cross-protocol incidents
+\end{itemize}
 
 \hypertarget{roadmap-adoption-strategy}{%
 \subsection{8. Roadmap \& Adoption
@@ -1415,29 +1312,19 @@ indicators aligned with its mission:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{TVL Growth}: From €10M (post-launch) to €1B+ in 24 months.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Swap Volume}: 20× TVL target maintained via market
   integrations and partner flows.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{User Base}: Growth from early DeFi adopters to mainstream EU
   retail and B2B.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Protocol Revenue}: \textgreater€500K/year sustainable at €20M
   TVL.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Vault Diversity}: Four vaults live with differentiated
   collateral and risk models.
-  \end{quote}
 \end{itemize}
 
 Progress is governed by data transparency, with quarterly performance
@@ -1452,25 +1339,17 @@ Quantillon's adoption strategy includes:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Community growth}: Incentivized programs for ambassadors,
   contributors, and early adopters.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{B2B pipelines}: Outreach to wealth managers, DAOs, family
   offices, and treasuries.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Ecosystem grants}: For developers building QEURO-integrated
   products (e.g., wallets, cross-chain bridges, tax tools).
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Educational content}: Financial literacy campaigns focused on
   DeFi yields, euro-denominated finance, and MiCA.
-  \end{quote}
 \end{itemize}
 
 Quantillon is not merely launching a product---it is fostering a
@@ -1528,25 +1407,19 @@ operations, Quantillon is structured into three synergistic entities:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Quantillon Protocol} (on-chain): Fully decentralized smart
   contracts governed by \$QTI holders. Responsible for minting, vault
   logic, hedging infrastructure, and governance proposals.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Quantillon Labs} (development): A legal entity responsible for
   developing and launching the protocol. Initially acts as a liquidity
   provider and hedger, remunerated by the protocol. Labs ensures code
   security, DevOps, and integrations.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Quantillon Foundation} (compliance): A non-profit Swiss-style
   foundation that interfaces with regulators, auditors, and legal
   stakeholders. It safeguards multisig access, publishes disclosures,
   and facilitates DAO transitions.
-  \end{quote}
 \end{itemize}
 
 This tripartite model preserves decentralization while ensuring
@@ -1571,25 +1444,17 @@ contracts include:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{MintManager:} Handles the conversion of ERC20 assets to QEURO
   at oracle rates, manages collateral routing.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{VaultEngine:} Oversees collateral deposits, DeFi deployment,
   liquidation triggers, and hedger margins.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{YieldController:} Applies yield share logic, calculates Yield
   Shift, and manages protocol fees.
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{GovernanceModule:} Administers voting logic, fee toggles, and
   whitelisting of new vaults or oracle feeds.
-  \end{quote}
 \end{itemize}
 
 All contracts are non-custodial, with critical functions gated through
@@ -1604,17 +1469,11 @@ fallback nodes under Quantillon Labs. Oracle feeds are used for:
 
 \begin{itemize}
 \item
-  \begin{quote}
   EUR/USD spot rates
-  \end{quote}
 \item
-  \begin{quote}
   USDC price stability checks
-  \end{quote}
 \item
-  \begin{quote}
   On-chain collateral valuation (Aave, Maker)
-  \end{quote}
 \end{itemize}
 
 A three-tier logic is applied:
@@ -1622,17 +1481,11 @@ A three-tier logic is applied:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \begin{quote}
   \textbf{Medianized price feeds} across multiple sources
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Heartbeat and deviation checks} to detect anomalies
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Fallback escalation} using governance-mandated oracles
-  \end{quote}
 \end{enumerate}
 
 This ensures robust resistance to manipulation or downtime.
@@ -1647,34 +1500,22 @@ Let:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{R} = net available yield from collateral
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{H} = \% of target hedger pool filled
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Yh} = yield allocated to hedgers
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Yu} = yield allocated to users
-  \end{quote}
 \end{itemize}
 
 Then:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Yh = min(1\%, R × H × α)}
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Yu = R − Yh − protocol fee (10\%)}
-  \end{quote}
 \end{itemize}
 
 Where α is a governance-defined coefficient that tunes market
@@ -1690,19 +1531,13 @@ using:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{VaR (95\%/99\%)} models on EUR/USD and TVL drawdowns
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Stress tests} assuming FX shock (+/- 10\%), collateral yield
   drop to 0\%, or Aave liquidity collapse
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Daily simulations} to validate liquidation thresholds and
   hedger margin adequacy
-  \end{quote}
 \end{itemize}
 
 Results are logged on-chain and reviewed by both internal risk modules
@@ -1717,18 +1552,12 @@ compliance-oriented posture:
 
 \begin{itemize}
 \item
-  \begin{quote}
   \textbf{Public transparency} of all vault mechanics, treasury flows,
   and governance changes
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Voluntary disclosures} issued by Quantillon Foundation
-  \end{quote}
 \item
-  \begin{quote}
   \textbf{Audit trails} for smart contracts and FX margin mechanisms
-  \end{quote}
 \end{itemize}
 
 This hybrid approach supports future institutional integrations and
@@ -1737,3 +1566,13 @@ legal adaptability across EU jurisdictions.
 Quantillon's technical backbone is crafted not only for security and
 functionality, but also for auditability, regulatory interface, and
 long-term evolvability.
+
+\textbf{sparency} of all vault mechanics, treasury flows, and governance
+changes
+
+\begin{itemize}
+\item
+  \textbf{Voluntary disclosures} issued by Quantillon Foundation
+\item
+  \textbf{Audit trails} f
+\end{itemize}
