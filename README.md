@@ -4,7 +4,6 @@
   <img src="https://github.com/Quantillon-Labs/gitbook/raw/main/.gitbook/assets/banner.png" alt="Quantillon Protocol Banner" width="100%">
 </div>
 
-
 # Quantillon Documentation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
