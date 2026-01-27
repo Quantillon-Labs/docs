@@ -30,9 +30,17 @@
 | `dev.quantillon.money` | SPA + Basic Auth | `/var/www/dev/quantillon-landing/dist` | 443 |
 | `dev.app.quantillon.money` | SPA + IP restriction | `/var/www/dev/quantillon-dapp/dist` | 443 |
 | `dev.api.quantillon.money` | Reverse proxy | `localhost:4001` | 443 |
-| `privatedemo.quantillon.money` | SPA + Basic Auth + RPC | `/var/www/privatedemo/quantillon-dapp/dist` | 443 |
+| `privatedemo.quantillon.money` | SPA + Basic Auth + API proxies | `/var/www/privatedemo/quantillon-dapp/dist` | 443 |
 | `stats.quantillon.money` | Reverse proxy (Umami) | `localhost:3000` | 443 |
 | `docs.quantillon.money` | Redirect | `quantillon.gitbook.io` | 443 |
+
+### Routes Proxy (privatedemo.quantillon.money)
+
+| Route | Backend | Service |
+|-------|---------|---------|
+| `/api/funding/*` | `localhost:6101` | Funding Monitor API |
+| `/api/indexer/*` | `localhost:6102` | Indexer Service API |
+| `/rpc` | `localhost:8545` | Anvil JSON-RPC (Base fork) |
 
 ### Authentification
 - **Basic Auth**: Fichier `/etc/nginx/.htpasswd` (user: `quantillon`)
