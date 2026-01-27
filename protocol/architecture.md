@@ -51,17 +51,50 @@
 | Port | Protocole | Service |
 |------|-----------|---------|
 | 80, 443 | TCP | Nginx (HTTP/HTTPS) |
-| 54321 | TCP | SSH (rate-limited) |
-| 4000 | TCP/UDP | API prod |
-| 4001 | TCP/UDP | API dev |
-| 4101 | TCP/UDP | Funding monitor (prod) |
-| 4102 | TCP/UDP | Indexer service (prod) |
-| 5101 | TCP/UDP | Funding monitor (dev) |
-| 5102 | TCP/UDP | Indexer service (dev) |
-| 6101 | TCP/UDP | Funding monitor (privatedemo) |
-| 6102 | TCP/UDP | Indexer service (privatedemo) |
+| 54321 | TCP | SSH (rate-limited via UFW + Fail2ban) |
+| 4000 | TCP | API prod |
+| 4001 | TCP | API dev / privatedemo |
+| 4101 | TCP | Funding monitor (prod) |
+| 6101 | TCP | Funding monitor (privatedemo) |
+| 6102 | TCP | Indexer service (privatedemo) |
 
-**Note**: Fail2ban n'est **pas installé**.
+**Note**: Ports 4102, 5101, 5102 non ouverts (services prod/dev non déployés)
+
+---
+
+## Protection Anti-Bruteforce - Fail2ban 1.1.0
+
+**Configuration**: `/etc/fail2ban/jail.local`
+**Filtres personnalisés**: `/etc/fail2ban/filter.d/nginx-api-abuse.conf`
+
+### Jails actives
+
+| Jail | Service | MaxRetry | FindTime | BanTime |
+|------|---------|----------|----------|---------|
+| `sshd` | SSH (port 54321) | 3 | 10 min | 24h |
+| `nginx-http-auth` | Auth Basic Nginx | 5 | 10 min | 1h |
+| `nginx-botsearch` | Bots malveillants | 2 | 10 min | 1h |
+| `nginx-limit-req` | Rate limiting | 10 | 10 min | 1h |
+| `nginx-api-abuse` | Abus API (4xx répétés) | 30 | 1 min | 30 min |
+
+### Configuration par défaut
+- **Ban action**: UFW (intégration firewall)
+- **IPs ignorées**: localhost (127.0.0.1, ::1)
+
+### Commandes utiles
+```bash
+# Statut global
+sudo fail2ban-client status
+
+# Statut d'un jail spécifique
+sudo fail2ban-client status sshd
+
+# Débannir une IP
+sudo fail2ban-client set sshd unbanip <IP>
+
+# Voir les IPs bannies
+sudo fail2ban-client get sshd banned
+```
 
 ---
 
@@ -217,6 +250,7 @@
                               ┌────────▼────────┐
                               │  UFW Firewall   │
                               │  (80,443,54321) │
+                              │    + Fail2ban   │
                               └────────┬────────┘
                                        │
                               ┌────────▼────────┐
@@ -255,8 +289,8 @@
 ## Points d'attention
 
 1. **Certificat dev.api.quantillon.money** expire le 20 Mars 2026 (le plus tôt)
-2. **Fail2ban** non installé - protection brute-force limitée au rate-limiting UFW
-3. **SSH** sur port non-standard 54321 (bonne pratique)
+2. **SSH** sur port non-standard 54321 (bonne pratique) + protection Fail2ban (ban 24h après 3 échecs)
+3. **Fail2ban** actif avec 5 jails (SSH, Nginx auth, bots, rate-limit, API abuse)
 4. **Tous les services Node.js** tournent en root (considération sécurité)
 5. **PostgreSQL** accessible uniquement en localhost (sécurisé)
 
