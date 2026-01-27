@@ -168,25 +168,36 @@ sudo fail2ban-client get sshd banned
 
 ## Process Manager - PM2 6.0.8
 
+### Services actifs
+
 | App | Port | Env | Chemin |
 |-----|------|-----|--------|
 | `umami` | 3000 | - | /var/www/umami |
-| `quantillon-api` | 4000 | prod | /var/www/prod/quantillon-dapp/backend |
-| `quantillon-api-dev` | 4001 | dev | /var/www/dev/quantillon-dapp/backend |
-| `funding-monitor` | 4101 | prod | /var/www/prod/quantillon-dapp/backend/funding-monitor |
-| `funding-monitor-dev` | 5101 | dev | /var/www/dev/quantillon-dapp/backend/funding-monitor |
-| `funding-monitor-privatedemo` | 6101 | privatedemo | /var/www/privatedemo/quantillon-dapp/backend/funding-monitor |
-| `indexer-api` | 4102 | prod | /var/www/prod/quantillon-dapp/backend/indexer-service |
-| `indexer-api-dev` | 5102 | dev | /var/www/dev/quantillon-dapp/backend/indexer-service |
+| `quantillon-dapp-api` | 4000 | prod | /var/www/dev/quantillon-dapp/backend |
+| `quantillon-dapp-api-dev` | 4001 | dev | /var/www/dev/quantillon-dapp/backend |
+| `funding-monitor` | 6101 | privatedemo | /var/www/privatedemo/quantillon-dapp/backend/funding-monitor |
 | `indexer-api-privatedemo` | 6102 | privatedemo | /var/www/privatedemo/quantillon-dapp/backend/indexer-service |
+
+### Services non déployés (prévu)
+
+| App | Port | Env | Status |
+|-----|------|-----|--------|
+| `funding-monitor` (prod) | 4101 | prod | Non déployé |
+| `funding-monitor-dev` | 5101 | dev | Non déployé |
+| `indexer-api` (prod) | 4102 | prod | Non déployé |
+| `indexer-api-dev` | 5102 | dev | Non déployé |
 
 ### Port Allocation Strategy
 
 | Service | Prod | Dev | Privatedemo |
 |---------|------|-----|-------------|
-| Main API | 4000 | 4001 | 4001 |
+| Main API | 4000 | 4001 | - |
 | Funding Monitor | 4101 | 5101 | 6101 |
 | Indexer Service | 4102 | 5102 | 6102 |
+
+### Configuration PM2
+- **Startup**: Activé (`pm2-root.service` enabled)
+- **Auto-restart**: Configuré via `pm2 save`
 
 ---
 
@@ -200,6 +211,41 @@ sudo fail2ban-client get sshd banned
 - **Accès**: Proxié via `privatedemo.quantillon.money/rpc`
 
 ---
+
+## Funding Monitor Service
+
+**Source des données**: Lighter DEX API (`https://mainnet.zklighter.elliot.ai`)
+**Paire suivie**: EURUSD (market_id: 96)
+
+### Format des données
+
+L'API Lighter retourne les taux de funding **déjà en pourcentage** :
+- `rate: "0.0007"` = 0.0007% par heure (PAS 0.07%)
+
+### Calcul d'annualisation
+
+```
+annualized = (cumulative / days) * 365
+```
+
+**Note**: Pas de multiplication par 100 car les taux sont déjà en %.
+
+### Endpoints API
+
+| Endpoint | Méthode | Description |
+|----------|---------|-------------|
+| `/api/funding/status` | GET | Statut de synchronisation |
+| `/api/funding/stats` | GET | Statistiques par période (1h, 1d, 7d, 1m...) |
+| `/api/funding/history` | GET | Historique pour graphiques |
+| `/api/funding/update` | POST | Déclenche une mise à jour |
+
+### Tables PostgreSQL
+
+- `funding_metadata` - Métadonnées de synchronisation
+- `funding_points` - Points de données horaires
+
+---
+
 ## Structure des répertoires
 
 ```
@@ -218,7 +264,8 @@ sudo fail2ban-client get sshd banned
 │   └── quantillon-dapp/
 │       ├── dist/                   # dApp privatedemo
 │       └── backend/
-│           └── funding-monitor/    # Service monitoring
+│           ├── funding-monitor/    # Funding rates monitoring (port 6101)
+│           └── indexer-service/    # Event indexer (port 6102)
 └── umami/                          # Analytics platform
 ```
 
